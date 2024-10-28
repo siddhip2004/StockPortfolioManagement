@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimized Portfolio</title>
+</head>
+<body>
+    <div>
+        {{ plot | safe }}
+    </div>
+    <div>
+        <h2>Optimized Portfolio Metrics:</h2>
+            <p>Expected Annual Return: {{ expected_annual_return }}</p>
+            <p>Annual Volatility: {{ annual_volatility }}</p>
+            <p>Sharpe Ratio: {{ sharpe_ratio }}</p>
+        </div>
+        
+    </div>
+    <div>
+        <h2>Optimized Weights of Each Ticker:</h2>
+        {{ optimized_weights_table | safe }}
+    </div>
+</body>
+</html>
