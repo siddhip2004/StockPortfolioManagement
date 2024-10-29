@@ -1,143 +1,144 @@
-import logo from '../pictures/logo.png'
-import { useState } from 'react';
-import { useAuthContext } from '../hooks/useAuthContext';
-import { useDataContext } from '../hooks/useDataContext';
+import React, { useState } from 'react';
 
-const MainForm = () => {
+const Mainform = () => {
+  const [tickers, setTickers] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [result, setResult] = useState(null);
+  const [error, setError] = useState(null);
 
-    const { dispatch } = useDataContext()
-    const { user } = useAuthContext()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
+    setResult(null);
 
-    const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('');
-    const [strings, setStrings]=useState('');
-    const [error, setError] = useState(null)
-    const [emptyFields, setEmptyFields] = useState([])
+    try {
+      const response = await fetch('http://127.0.0.1:8080/optimize-portfolio/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          tickers: tickers,
+          start_date: startDate,
+          end_date: endDate,
+        }),
+      });
 
-    // const{login, error, isLoading} = useLogin()
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
 
-
-    // function validateForm() {
-
-    //       return password.length > 0;   
-    //   }
-
-    // const handleSubmit = async (e) => {
-
-    //     e.preventDefault();   
-    //     await login( username, password);
-    //     console.log(password, username );
-    //   };
-
-    const formatStartdate = (date) => {
-        const [year, month, day] = date.split('-');
-        let Startdate=0;
-        if (year && month && day) {
-            Startdate= `${year}/${month.padStart(2, '0')}/${day.padStart(2, '0')}`;
-            return Startdate;
-        }
-        // if(Startdate!==0){
-
-        // const startDateFormatted = new Date(Startdate).toLocaleDateString();
-        // return <span>{startDateFormatted}</span>;
-        // }
-
-        return date; // Return the original date if the format is invalid
-    };
-
-    const formatEnddate = (date) => {
-        const [year, month, day] = date.split('-');
-        let Enddate;
-        if (year && month && day) {
-            Enddate= `${year}/${month.padStart(2, '0')}/${day.padStart(2, '0')}`;
-            return Enddate;
-        }
-        // if(Enddate){
-
-        // const endDateFormatted = new Date(Enddate).toLocaleDateString();
-        // return <span>{endDateFormatted}</span>;
-        // }
-
-        return date; // Return the original date if the format is invalid
-    };
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        if (!user) {
-            setError('You must be logged in')
-            return
-          }
-
-        const data = { endDate, strings, startDate}
-
-        const response = await fetch ('/api/data/add', {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${user.token}`
-            }
-        })
-
-        const json = await response.json()
-
-        if (!response.ok) {
-        setError(json.error)
-        setEmptyFields(json.emptyFields)
-        }
-
-        if(response.ok)
-        {
-            setStartDate('')
-            setEndDate('')
-            setStrings('')
-            setError(null)
-            setEmptyFields([])
-            localStorage.setItem('data', JSON.stringify(json))
-            dispatch({type: 'CREATE_DATA', payload: json})
-        }
+      const data = await response.json();
+      setResult(data);
+    } catch (error) {
+      setError(error.message);
     }
+  };
 
-    return ( 
-        <div className="mainform">
-            <img src={logo} width={70} height={50}/>
-            <h2>InvestSavvy</h2>
-            {/* <span role="img" aria-label="rocket">🚀</span> */}
-            <form onSubmit = {handleSubmit}>
-                <label>Start-Date: </label>
-                <input type="text" required 
-                value={startDate}
-                onChange={(e) => setStartDate(formatStartdate(e.target.value))}
-                className={emptyFields.includes('startDate') ? 'error' : ''}
-                />
+  const styles = {
+    container: {
+      maxWidth: '600px',
+      margin: '40px auto',
+      padding: '20px',
+      backgroundColor: 'white',
+      borderRadius: '8px',
+      boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+    },
+    heading: {
+      textAlign: 'center',
+      color: '#1e90ff',
+      fontSize: '24px',
+      fontWeight: 'bold',
+    },
+    label: {
+      display: 'block',
+      marginBottom: '10px',
+      fontWeight: 'bold',
+      color: '#333',
+    },
+    input: {
+      width: '100%',
+      padding: '10px',
+      marginBottom: '20px',
+      border: '1px solid #ccc',
+      borderRadius: '4px',
+    },
+    button: {
+      display: 'block',
+      width: '100%',
+      padding: '10px',
+      backgroundColor: '#1e90ff',
+      color: 'white',
+      fontWeight: 'bold',
+      border: 'none',
+      borderRadius: '4px',
+      cursor: 'pointer',
+    },
+    error: {
+      color: 'red',
+      textAlign: 'center',
+    },
+    results: {
+      marginTop: '20px',
+    },
+  };
 
-                <label>End-Date: </label>
-                <input type="text" required 
-                value={endDate}
-                onChange={(e) => setEndDate(formatEnddate(e.target.value))}
-                className={emptyFields.includes('endDate') ? 'error' : ''}
-                />
-
-                <pre>
-                    <label>Stock Market Tickers:</label>
-                    <input type="text" required placeholder="Enter comma separated tickers"
-                    value={strings}
-                    onChange={(e) => setStrings((e.target.value))}
-                    className={emptyFields.includes('strings') ? 'error' : ''}
-                    />
-                </pre>
-
-                
-                <button>Submit</button>
-              
-                {/* <button disabled={isLoading}>Submit</button>
-                {error && <div className="error">{error}</div>} */}
-                {error && <div className="error">{error}</div>}
-                <pre></pre>
-                {/* <a href = "/signup">Don't have an account?</a> */}
-            </form>
+  return (
+    <div style={styles.container}>
+      <h1 style={styles.heading}>Optimize Your Portfolio</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label style={styles.label}>Tickers (comma-separated)</label>
+          <input
+            type="text"
+            value={tickers}
+            onChange={(e) => setTickers(e.target.value)}
+            style={styles.input}
+            placeholder="e.g. AAPL,GOOGL,MSFT"
+            required
+          />
         </div>
-     );
-}
- 
-export default MainForm;
+        <div>
+          <label style={styles.label}>Start Date (YYYY/MM/DD)</label>
+          <input
+            type="text"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            style={styles.input}
+            placeholder="e.g. 2023/01/01"
+            required
+          />
+        </div>
+        <div>
+          <label style={styles.label}>End Date (YYYY/MM/DD)</label>
+          <input
+            type="text"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+            style={styles.input}
+            placeholder="e.g. 2023/12/31"
+            required
+          />
+        </div>
+        <div>
+          <button type="submit" style={styles.button}>
+            Optimize
+          </button>
+        </div>
+      </form>
+      {error && <p style={styles.error}>{error}</p>}
+      {result && (
+        <div style={styles.results}>
+          <h2 style={{ fontWeight: 'bold' }}>Results:</h2>
+          <p>Weights: {JSON.stringify(result.weights)}</p>
+          <p>Expected Annual Return: {result.expected_annual_return}</p>
+          <p>Annual Volatility: {result.annual_volatility}</p>
+          <p>Sharpe Ratio: {result.sharpe_ratio}</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Mainform;
