@@ -142,9 +142,9 @@ This project provides a comprehensive guidance to the user by providing them ins
 ## 📱Screenshots
 - A glimpse of our project 
 
-![Guest Page](https://drive.google.com/file/d/1uXmJtVCYZlTyVpeK7x18pYG6ReV68AGG/view?usp=sharing)
-![Sign Up](https://drive.google.com/file/d/1d4MPzBUebKcWMbJIg4vSbbPYNVbWZNOy/view?usp=sharing)
-![Home Page](file:///home/siddhi/Music/ForInheritance/StockPortfolioManagement/output_ss/landing_pg.png)
-![Company Stock Details](https://drive.google.com/uc?id=1rN4Hwso2bETSPOPZ2YDnObHDC2DWrpOT)
-![Latest Business News](https://drive.google.com/file/d/1dndJcRR5VmK0moYOW4nxu-Oq2XoKd9hk/view?usp=sharing)
-![Optimised Portfolio](https://drive.google.com/file/d/1_AxcXF6aCeg5VskHk3Py3n1rLcNmF9NF/view?usp=sharing)
+![Guest Page](assets/home_pg.png)
+![Sign Up](assets/signup_pg.png)
+![Home Page](assets/landing_pg.png)
+![Optimised Portfolio](assets/portfolio_pg.png)
+![Company Stock Details](assets/stock_details_pg.png)
+![Latest Business News](assets/news_pg.png)
