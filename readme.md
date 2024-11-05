@@ -144,7 +144,7 @@ This project provides a comprehensive guidance to the user by providing them ins
 
 ![Guest Page](https://drive.google.com/file/d/1uXmJtVCYZlTyVpeK7x18pYG6ReV68AGG/view?usp=sharing)
 ![Sign Up](https://drive.google.com/file/d/1d4MPzBUebKcWMbJIg4vSbbPYNVbWZNOy/view?usp=sharing)
-![Home Page](https://drive.google.com/file/d/1kGS7eV-1YQTXOOAsI3-Gzjc_N_hoNQvh/view?usp=sharing)
-![Company Stock Details](https://drive.google.com/file/d/1ZkrGwUvisTmvSkYA_W3AC4aC6NLijcWT/view?usp=sharing)
+![Home Page](file:///home/siddhi/Music/ForInheritance/StockPortfolioManagement/output_ss/landing_pg.png)
+![Company Stock Details](https://drive.google.com/uc?id=1rN4Hwso2bETSPOPZ2YDnObHDC2DWrpOT)
 ![Latest Business News](https://drive.google.com/file/d/1dndJcRR5VmK0moYOW4nxu-Oq2XoKd9hk/view?usp=sharing)
 ![Optimised Portfolio](https://drive.google.com/file/d/1_AxcXF6aCeg5VskHk3Py3n1rLcNmF9NF/view?usp=sharing)
