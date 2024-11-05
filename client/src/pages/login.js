@@ -27,7 +27,7 @@ const Login = () => {
         <div className="logindiv">
         <div className="login">
             <img src={logo} width={70} height={50}/>
-            <h2>InvestSavvy</h2>
+            <h2>Optimise Portfolio</h2>
             {/* <span role="img" aria-label="rocket">🚀</span> */}
             <form onSubmit = {handleSubmit}>
                 <label>Username: </label>
