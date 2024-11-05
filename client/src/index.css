@@ -165,10 +165,10 @@ body
      /* margin-top: 0.8%; */
     /* margin-left: auto; */
     /* margin-right: 35%; */
-    padding-left: 35%;
+    padding-left: 55%;
     background: none;
     /* display: flexbox; */
-    padding-right: 10%;
+    /* padding-right: 2%; */
     width: 40%;
 }
 
@@ -317,243 +317,101 @@ body
     text-decoration: none;
 }
 
-.logindiv {
-  padding-top: 5%;
+.logindiv, .signupdiv, .contactdiv {
   display: flex;
+  justify-content: center;
+  padding-top: 12%;
 }
 
- .img4 {
-  margin-left: 10%;
-  /* padding-top: 10%; */
-  border-bottom: aqua;
-}
-
-.login 
-{
-  /* margin-left: 650px;  */
-  
-  width: 580px;
-  height: 680px;
-  /* width:auto; */
-  background-color:cornsilk;
-  /* margin-top: 150px; */
-  margin: auto;
-  margin-top: 5%;
-  box-shadow: 1px, 3px, 5px rgb(30, 47, 240) ;
-}
-
-.login h2
- {
-   color: black;
-   margin-left: 24%;
-   font-size: 50px;
-   padding-top: 20px;
-   /* padding-right: 15px; */
- }
-
- .login label 
- {
-   color: black;
-   text-align: center;
-   margin-left: 15%;
-   padding-left: 4.5%;
-   margin-top: auto;
-   padding-top: 45px;
-   display: flex;
-   font-weight: bold;
-   font-size: 22px;
- }
-
- .login input
- {
-   /* width: 100%;
-   margin-left: 45%;
-   margin-right: 80%; */
-   
-   width: 350px;
-   margin-left: 15%;
-   border-radius: 7px;
-   box-shadow: 10px, 3px, 5px black;
-   border: 1px solid #4e4b4b;
-   display: block;
-   /* margin-top: 10px; */
-   margin-top: 3%;
-   /* padding-left: 3%; */
-   margin-left: 19%;
-   height: 32px;
-   font-style: normal;  
-   font-weight: 550;
-   font-size: 18px;
- }
-
- .login button
- {
-   background-color: black;
-   font-size: 17px;
-   width: 130px;
-   height: 39px;
-   border-radius: 7px;
-   border: rgb(30, 47, 240);;
-   margin-left: 40%;
-   margin-top: 7%;
-   color: #ffffff;
-   font-weight: bold;
-   cursor:pointer;
-   /* margin-bottom: 40px; */
-   margin-bottom: 8%;
-   font-size: 20px;
- }
-
- .login button:hover{
+/* Shared styling for login and signup boxes */
+.login, .signup {
+  width: 90%;
+  max-width: 580px;
+  height: auto;
   background-color: cornsilk;
-  color: black; 
-}
-
-.login img 
-{
-  /* padding-top: 30px; */
-  padding-top: 6%;
-  padding-left: 42%;
-}
-
-.login  a
-{
-  padding-left: 30%;
-  padding-top: 16px;
-  margin-bottom: 15px;
-  text-decoration: none;
-  font-size: 23px;
-}
-
-.login a:hover 
-{
-  color: black;
-}
-
-.signupdiv {
-  padding-top: 5%;
-  display: flex;
-}
-
-.signupdiv .img4 {
-  margin-left: 10%;
-  /* padding-top: 10%; */
-  border-bottom: aqua;
-}
-
-
-.signup 
-{
-  /* margin-left: 650px;  */
-  /* margin-left: 35%; */
-  width: 580px;
-  height: 780px;
-  /* width:auto; */
-  background-color:cornsilk;
-  /* margin-top: 150px; */
-  /* margin-top: 8%; */
   margin: auto;
-  margin-top: 5%;
-  box-shadow: 1px, 3px, 5px rgb(30, 47, 240) ;
-}
-
-.signup h2
- {
-   color: black;
-   margin-left: 24%;
-   font-size: 50px;
-   padding-top: 20px;
-   /* padding-right: 15px; */
- }
-
- .signup label 
- {
-  color: black;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(30, 47, 240, 0.2);
   text-align: center;
-  margin-left: 15%;
-  padding-left: 4.5%;
-  margin-top: auto;
-  padding-top: 45px;
-  display: flex;
+}
+
+/* Form header styling */
+.login h2, .signup h2 {
+  color: black;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* Label styling */
+.login label, .signup label {
+  display: block;
+  color: black;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 1.2rem;
+  margin-top: 30px;
+  text-align: left;
+  margin-left: 15%;
+}
 
- }
+/* Input styling */
+.login input, .signup input {
+  width: 100%;
+  max-width: 350px;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 7px;
+  border: 1px solid #4e4b4b;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  font-weight: 550;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
- .signup input
- {
-   /* width: 100%;
-   margin-left: 45%;
-   margin-right: 80%; */
+/* Button styling */
+.login button, .signup button {
+  background-color: black;
+  color: #ffffff;
+  font-size: 1.1rem;
+  width: 140px;
+  padding: 12px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: background-color 0.3s, color 0.3s;
+}
 
-   width: 350px;
-   margin-left: 15%;
-   border-radius: 7px;
-   box-shadow: 10px, 3px, 5px black;
-   border: 1px solid #4e4b4b;
-   display: block;
-   /* margin-top: 10px; */
-   margin-top: 3%;
-   margin-left: 19%;
-   height: 32px;
-   font-style: normal;  
-   font-weight: 550;
-   font-size: 18px;
-
- }
-
- .signup button
- {
-   background-color: black;
-   font-size: 17px;
-   width: 100px;
-   height: 35px;
-   border-radius: 7px;
-   border: rgb(30, 47, 240);;
-   margin-left: 40%;
-   margin-top: 7%;
-   color: #ffffff;
-   font-weight: bold;
-   cursor:pointer;
-   /* margin-bottom: 40px; */
-   margin-bottom: 8%;
- }
-
- .signup button:hover{
+.login button:hover, .signup button:hover {
   background-color: cornsilk;
-  color: black; 
+  color: black;
 }
 
-.signup img 
-{
-  /* padding-top: 30px; */
-  padding-top: 6%;
-  padding-left: 42%;
-}
-
-.signup  a
-{
-  padding-left: 27%;
-  padding-top: 16px;
-  margin-bottom: 15px;
+/* Anchor (link) styling */
+.login a, .signup a {
+  display: block;
+  margin-top: 20px;
   text-decoration: none;
-  font-size: 23px;
+  color: #1e2ff0;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
+.login a:hover, .signup a:hover {
+  color: black;
+}
+
+/* Error message styling */
 div.error {
-  
   padding: 10px;
   background: #fff2ac;
-  border: 1px solid var(--error);
-  color: var(--error);
+  border: 1px solid #e63946;
+  color: #e63946;
   border-radius: 4px;
   margin: 10px 0;
   text-align: center;
-}
-
-.signup a:hover 
-{
-  color: black;
 }
 
 .contactdiv 
@@ -1005,7 +863,8 @@ div.error {
 {
   /* background-color: aqua; */
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
+  margin-left: 7%;
 }
 
 .mainDiv .card 

@@ -11,7 +11,6 @@ import Profile from "./pages/profile";
 import News from "./pages/news";
 import ImageSliding from "./pages/imageSliding";
 import MainForm from "./pages/mainform";
-import DataDetails from "./pages/DataDetails";
 import { useDataContext } from "./hooks/useDataContext";
 import CompanyDetails from "./pages/getstock";
 
@@ -115,7 +114,7 @@ function App() {
          <Route path="/login" element={!user ?<LoginPage /> : <Navigate to="/home" /> } />
          <Route path="/aboutus" element={<AboutUsPage />} />
          <Route path="/profile" element={user ? <ProfilePage /> : <Navigate to="/signup"/>} />
-         <Route path="/contactus" element={<ContactUsPage />} />
+         <Route path="/contactus" element={user ? <ContactUsPage />: <Navigate to="/login"/>} />
          <Route path="/mainform" element={!data ?<Mainform/> : <Navigate to ="/results"/>}/>
          <Route path="/results" element={<DataDetail/>}/>
          <Route path="/explore" element={<GetStock/>}/>
@@ -254,10 +253,6 @@ function DataDetail() {
          <div className="datadetailpage">
                 <Navbar/>
          </div>
- 
-               <div className="datadetailpg">
-                  <DataDetails/>
-               </div>
       </div>
    );
  }

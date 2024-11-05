@@ -75,13 +75,36 @@ const Mainform = () => {
       borderRadius: '4px',
       cursor: 'pointer',
     },
+   
+    result: {
+      backgroundColor: '#f0f8ff', // Light background color
+      border: '1px solid #add8e6', // Light blue border
+      borderRadius: '8px', // Rounded corners
+      padding: '15px', // Padding inside the box
+      marginTop: '20px', // Space above the result box
+      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)', // Soft shadow for depth
+    },
+    
+    resultHeading: {
+      fontWeight: 'bold', // Bold heading
+      fontSize: '20px', // Font size for the heading
+      color: '#1e90ff', // Blue color for the heading
+      marginBottom: '10px', // Space below the heading
+      textAlign: 'center', // Center the heading
+    },
+    
+    resultText: {
+      fontSize: '16px', // Font size for the result text
+      color: '#333', // Darker text color for readability
+      margin: '5px 0', // Vertical margins for spacing
+      lineHeight: '1.5', // Line height for better readability
+    },
+    
     error: {
       color: 'red',
       textAlign: 'center',
     },
-    results: {
-      marginTop: '20px',
-    },
+    
   };
 
   return (
@@ -129,13 +152,20 @@ const Mainform = () => {
       </form>
       {error && <p style={styles.error}>{error}</p>}
       {result && (
-        <div style={styles.results}>
-          <h2 style={{ fontWeight: 'bold' }}>Results:</h2>
-          <p>Weights: {JSON.stringify(result.weights)}</p>
-          <p>Expected Annual Return: {result.expected_annual_return}</p>
-          <p>Annual Volatility: {result.annual_volatility}</p>
-          <p>Sharpe Ratio: {result.sharpe_ratio}</p>
-        </div>
+        // <div style={styles.results}>
+        //   <h2 style={{ fontWeight: 'bold' }}>Results:</h2>
+        //   <p>Weights: {JSON.stringify(result.weights)}</p>
+        //   <p>Expected Annual Return: {result.expected_annual_return}</p>
+        //   <p>Annual Volatility: {result.annual_volatility}</p>
+        //   <p>Sharpe Ratio: {result.sharpe_ratio}</p>
+        // </div>
+        <div style={styles.result}>
+          <h2 style={styles.resultHeading}>Results:</h2>
+          <p style={styles.resultText}>Weights: {JSON.stringify(result.weights)}</p>
+          <p style={styles.resultText}>Expected Annual Return: {result.expected_annual_return}</p>
+          <p style={styles.resultText}>Annual Volatility: {result.annual_volatility}</p>
+          <p style={styles.resultText}>Sharpe Ratio: {result.sharpe_ratio}</p>
+      </div>
       )}
     </div>
   );

@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import invest from '../pictures/invest.jpeg';
 
-
 const News = () => {
   const [mynews, setMyNews] = useState([]);
+  const apiKey = process.env.REACT_APP_API_KEY_FOR_TESLA;
 
   const fetchData = async () => {
-    let resonse = await fetch(
-      "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=9c6ef9501ade47ce97ed7d3eb48ddfe5&q=india"
-    );
+    console.log("API URL:", process.env.REACT_APP_API_KEY_FOR_TESLA);
+    let resonse = await fetch(apiKey);
     let data = await resonse.json();
     setMyNews(data.articles);
   };
