@@ -106,18 +106,17 @@ This project provides a comprehensive guidance to the user by providing them ins
  npm start
 ```
  3. To start the backend server:
-  ```bash
-    
-    cd server
-    npm install
-    nodemon server.js   
+  ```bash 
+ cd server
+ npm install
+ nodemon server.js   
   ```
  4. To start the ML model:
   ```bash
-    cd app
-    python3 -m venv .venv. 
-    pip install -r requirements.txt
-    python3 main.py
+ cd app
+ python3 -m venv .venv. 
+ pip install -r requirements.txt
+ python3 main.py
   ```
 
 <strong>PS: Use your own API keys for news and fetching details about stocks. <br>The ML model of Yahoo Finance has been used to generate the portfolio.</br></strong>
